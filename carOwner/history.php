@@ -66,9 +66,9 @@
                         </div>
                     </div>
                     <div class="flex items-center">
-                        <button class="px-4 py-2 text-sm sm:text-base font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
+                        <a href="tripCompleted.php" class="px-4 py-2 text-sm sm:text-base font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
                             View Details
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

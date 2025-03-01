@@ -51,9 +51,7 @@
                         <div>
                             <div class="flex items-center space-x-2">
                                 <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-100">Manila to Quezon City</h3>
-                                <span class="px-2 py-1 text-xs sm:text-sm font-medium rounded-full bg-green-100 text-green-800">
-                                    Completed
-                                </span>
+                              
                             </div>
                             <div class="mt-2 space-y-1">
                                 <p class="text-sm sm:text-base text-gray-400">Toyota Vios (ABC-123)</p>
@@ -63,13 +61,20 @@
                         </div>
                     </div>
                     <div class="flex items-center space-x-3">
-                        <button class="px-4 py-2 text-sm sm:text-base font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
-                            View Details
+                        
+                        <a href="edit_trip.php" class="px-4 py-2 text-sm sm:text-base font-medium text-blue-400 hover:text-blue-500 transition-colors duration-200">
+                            Edit
+                        </a>
+                        <button class="px-4 py-2 text-sm sm:text-base font-medium text-red-400 hover:text-red-500 transition-colors duration-200">
+                            Delete
                         </button>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    
 </body>
 </html>
