@@ -8,7 +8,7 @@
 </head>
 <body class="bg-gray-700">
 
-        <?php include '../includes/nav.php'; ?>
+        <?php include 'nav.php'; ?>
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-xl overflow-hidden">
    
