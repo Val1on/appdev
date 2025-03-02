@@ -1,3 +1,50 @@
+<?php
+session_start();
+include 'database.php'; 
+
+
+if (!isset($_GET['id'])) {
+    die("Trip ID is missing");
+}
+$trip_id = (int) $_GET['id'];
+
+
+$sql = "SELECT * FROM trips WHERE id = ?";
+$stmt = mysqli_prepare($con, $sql);
+mysqli_stmt_bind_param($stmt, "i", $trip_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$trip = mysqli_fetch_assoc($result);
+if (!$trip) {
+    die("Trip not found");
+}
+
+$vehicles = mysqli_query($cnn, "SELECT id, name, plate_number FROM vehicles");
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $departure = $_POST['departure'];
+    $destination = $_POST['destination'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $vehicle_id = (int) $_POST['vehicle'];
+    $seats = (int) $_POST['seats'];
+    $price = (float) $_POST['price'];
+    $description = $_POST['description'];
+
+    $sql = "UPDATE trips SET departure = ?, destination = ?, date = ?, time = ?, vehicle_id = ?, seats = ?, price = ?, description = ? WHERE id = ?";
+    $stmt = mysqli_prepare($con, $sql);
+    mysqli_stmt_bind_param($stmt, "ssssiidis", $departure, $destination, $date, $time, $vehicle_id, $seats, $price, $description, $trip_id);
+    
+    if (mysqli_stmt_execute($stmt)) {
+        header("Location: trips.php?success=Trip updated");
+        exit;
+    } else {
+        echo "Error updating trip: " . mysqli_error($con);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
