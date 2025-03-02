@@ -14,7 +14,7 @@
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100">Trip History</h1>
         </div>
-\
+
         <div class="mb-6 border-b border-gray-700">
             <div class="flex justify-between items-center">
                 <nav class="flex space-x-8">
