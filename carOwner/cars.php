@@ -94,7 +94,8 @@ $result = mysqli_query($con, $sql);
                 </button>
             </div>
             
-            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <form action="update_car.php" method="POST" enctype="multipart/form-data" class="space-y-6">
+
             
                 <div>
                     <label class="block text-sm font-medium text-gray-200 mb-2">Current Vehicle Image</label>
