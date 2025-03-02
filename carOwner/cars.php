@@ -56,10 +56,10 @@ $result = mysqli_query($con, $sql);
                         echo '<span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">' . $row["carStatus"] . '</span>';
                         echo '</div>';
 
-                        // Vehicle Image
+                   
                         echo '<img class="w-full h-48 object-cover rounded-lg mb-4" src="' . $row["carImage"] . '" alt="Car Image">';
 
-                        // Vehicle Details
+                    
                         echo '<h3 class="text-xl font-semibold text-gray-100">' . $row["carModel"] . '</h3>';
                         echo '<div class="mt-4 space-y-2">';
                         echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Plate No:</span><span class="text-gray-100">' . $row["plateNum"] . '</span></p>';
@@ -67,13 +67,13 @@ $result = mysqli_query($con, $sql);
                         echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Seats:</span><span class="text-gray-100">' . $row["number_of_seats"] . '</span></p>';
                         echo '</div>';
 
-                        // Action Buttons
+                       
                         echo '<div class="mt-6 flex justify-end space-x-3">';
                         echo '<button id="editVehicleBtn" class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">Edit</button>';
                         echo '<button class="px-3 py-1.5 text-sm font-medium text-red-400 hover:text-red-300 transition-colors duration-200">Delete</button>';
                         echo '</div>';
 
-                        echo '</div>'; // End card
+                        echo '</div>'; 
                     }
                 } else {
                     echo '<p class="text-gray-400">No cars registered.</p>';
