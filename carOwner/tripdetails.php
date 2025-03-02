@@ -62,7 +62,10 @@
                     <p class="text-sm sm:text-base text-gray-400">Total: ₱600.00</p>
                 </div>
                 <button class="mt-4 w-full flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-green-500 text-white rounded-md text-xs sm:text-sm font-medium hover:bg-green-600 transition-colors duration-200">
-                    Request a Book
+                    Accept
+                </button>
+                 <button class="mt-4 w-full flex items-center justify-center px-3 py-1.5 sm:px-4 sm:py-2 bg-red-500 text-white rounded-md text-xs sm:text-sm font-medium hover:bg-red-900 transition-colors duration-200">
+                    Reject
                 </button>
             </div>
         </div>
