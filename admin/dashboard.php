@@ -59,13 +59,7 @@
                     </div>
                     <div class="mt-3 sm:mt-4">
                         <div class="flex items-center justify-between text-xs sm:text-sm">
-                            <span class="text-green-400 flex items-center">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
-                                12% increase
-                            </span>
-                            <span class="text-gray-400">vs last month</span>
+                           
                         </div>
                     </div>
                 </div>
@@ -82,17 +76,7 @@
                             <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100 mt-1 sm:mt-2">2,451</h3>
                         </div>
                     </div>
-                    <div class="mt-3 sm:mt-4">
-                        <div class="flex items-center justify-between text-xs sm:text-sm">
-                            <span class="text-green-400 flex items-center">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
-                                8% increase
-                            </span>
-                            <span class="text-gray-400">vs last month</span>
-                        </div>
-                    </div>
+                   
                 </div>
 
          
@@ -108,17 +92,7 @@
                             <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100 mt-1 sm:mt-2">324</h3>
                         </div>
                     </div>
-                    <div class="mt-3 sm:mt-4">
-                        <div class="flex items-center justify-between text-xs sm:text-sm">
-                            <span class="text-green-400 flex items-center">
-                                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
-                                15% increase
-                            </span>
-                            <span class="text-gray-400">vs last month</span>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
 
