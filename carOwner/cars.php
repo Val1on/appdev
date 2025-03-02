@@ -1,3 +1,16 @@
+<?php
+include 'database.php';
+
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+
+$sql = "SELECT * FROM cars";
+$result = mysqli_query($con, $sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,41 +43,44 @@
         
         <div id="vehiclesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             
-            <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                <div class="flex items-center justify-between mb-4">
-                    <div class="p-3 bg-blue-500 bg-opacity-20 rounded-lg">
-                        <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>
-                        </svg>
-                    </div>
-                    <span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">
-                        Active
-                    </span>
-                </div>
-                <h3 class="text-xl font-semibold text-gray-100">Toyota Vios 2020</h3>
-                <div class="mt-4 space-y-2">
-                    <p class="text-sm text-gray-400 flex items-center">
-                        <span class="w-24">Plate No:</span>
-                        <span class="text-gray-100">ABC-123</span>
-                    </p>
-                    <p class="text-sm text-gray-400 flex items-center">
-                        <span class="w-24">Color:</span>
-                        <span class="text-gray-100">Silver</span>
-                    </p>
-                    <p class="text-sm text-gray-400 flex items-center">
-                        <span class="w-24">Seats:</span>
-                        <span class="text-gray-100">4</span>
-                    </p>
-                </div>
-                <div class="mt-6 flex justify-end space-x-3">
-                    <button id="editVehicleBtn" class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
-                        Edit
-                    </button>
-                    <button class="px-3 py-1.5 text-sm font-medium text-red-400 hover:text-red-300 transition-colors duration-200">
-                        Delete
-                    </button>
-                </div>
-            </div>
+        <?php
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300">';
+                        echo '<div class="flex items-center justify-between mb-4">';
+                        echo '<div class="p-3 bg-blue-500 bg-opacity-20 rounded-lg">';
+                        echo '<svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
+                        echo '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>';
+                        echo '</svg>';
+                        echo '</div>';
+                        echo '<span class="px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800">' . $row["carStatus"] . '</span>';
+                        echo '</div>';
+
+                        // Vehicle Image
+                        echo '<img class="w-full h-48 object-cover rounded-lg mb-4" src="' . $row["carImage"] . '" alt="Car Image">';
+
+                        // Vehicle Details
+                        echo '<h3 class="text-xl font-semibold text-gray-100">' . $row["carModel"] . '</h3>';
+                        echo '<div class="mt-4 space-y-2">';
+                        echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Plate No:</span><span class="text-gray-100">' . $row["plateNum"] . '</span></p>';
+                        echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Color:</span><span class="text-gray-100">' . $row["color"] . '</span></p>';
+                        echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Seats:</span><span class="text-gray-100">' . $row["number_of_seats"] . '</span></p>';
+                        echo '</div>';
+
+                        // Action Buttons
+                        echo '<div class="mt-6 flex justify-end space-x-3">';
+                        echo '<button id="editVehicleBtn" class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">Edit</button>';
+                        echo '<button class="px-3 py-1.5 text-sm font-medium text-red-400 hover:text-red-300 transition-colors duration-200">Delete</button>';
+                        echo '</div>';
+
+                        echo '</div>'; // End card
+                    }
+                } else {
+                    echo '<p class="text-gray-400">No cars registered.</p>';
+                }
+
+                mysqli_close($con);
+                ?>
         </div> 
 
     
