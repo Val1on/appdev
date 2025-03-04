@@ -4,7 +4,7 @@ session_start();
 $carowners = "SELECT * FROM carowner";
 $result = mysqli_query($con, $carowners);
 
-$ownerID = $_SESSION['ownerNo'];
+$ownerID = $_SESSION['ownerNO'];
 
 function fetchCarOwnerData($ownerID) {
     global $con;  
@@ -193,127 +193,12 @@ $carownerdata = fetchCarOwnerData($ownerID)
 </div>
 
 
-<div id="editFormView" class="bg-gray-800 shadow-xl rounded-lg overflow-hidden hidden max-w-5xl mx-auto p-2 sm:p-4 lg:p-6">
 
-    <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 border-b border-gray-700">
-        <h2 class="text-base sm:text-lg lg:text-xl font-semibold text-white">Edit Car Owner</h2>
-    </div>
-    
-
-    <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5">
-        <form action="edit_car_owner.php" method="post" id="editCarOwnerForm" class="space-y-3 sm:space-y-4 lg:space-y-5">
-            <input type="hidden" name="editOwnerId" id="editOwnerId">
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-           
-                <div class="relative">
-                    <label for="editFirstName" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                        First Name
-                    </label>
-                    <input type="text" name="editFirstName" id="editFirstName" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
- 
-                <div class="relative">
-                    <label for="editLastName" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                        Last Name
-                    </label>
-                    <input type="text" name="editLastName" id="editLastName" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
-            
-                <div class="relative">
-                    <label for="editMiddleInitial" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                        Middle Initial
-                    </label>
-                    <input type="text" name="editMiddleInitial" id="editMiddleInitial" maxlength="1" 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
-       
-                <div class="relative">
-                    <label for="editContactNo" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                        Contact Number
-                    </label>
-                    <input type="tel" name="editContactNo" id="editContactNo" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
-                <div class="relative">
-                    <label for="editEmail" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                        Email
-                    </label>
-                    <input type="email" name="editEmail" id="editEmail" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
-     
-                <div class="relative">
-                    <label for="editCarId" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                        Car ID
-                    </label>
-                    <input type="text" name="editCarId" id="editCarId" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-            </div>
-
-            <div class="flex justify-end space-x-2 sm:space-x-3 lg:space-x-4 pt-3 sm:pt-4 lg:pt-5 border-t border-gray-700 mt-3 sm:mt-4 lg:mt-5">
-                <button type="button" onclick="toggleEditView()" 
-                    class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
-                    text-gray-300 bg-gray-700 rounded-md hover:bg-gray-600 
-                    focus:outline-none focus:ring-1 focus:ring-gray-500 transition-colors duration-200">
-                    Cancel
-                </button>
-                <button type="submit" 
-                    class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
-                    text-white bg-blue-600 rounded-md hover:bg-blue-700 
-                    focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors duration-200">
-                    Update Car Owner
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 </div>
 
 <script>
 
-document.querySelectorAll(".edit-button").forEach(button => {
-    button.addEventListener("click", function () {
-        let row = this.closest("tr"); 
 
-    
-        document.getElementById("editOwnerId").value = row.dataset.ownerId; 
-        document.getElementById("editFirstName").value = row.cells[0].textContent;
-        document.getElementById("editLastName").value = row.cells[1].textContent;
-        document.getElementById("editMiddleInitial").value = row.cells[2].textContent;
-        document.getElementById("editContactNo").value = row.cells[3].textContent;
-        document.getElementById("editEmail").value = row.cells[4].textContent;
-        document.getElementById("editCarId").value = row.cells[5].textContent;
-
-        console.log("Editing Owner ID:", document.getElementById("editOwnerId").value);
-    });
-});
 
 
     document.querySelector('.bg-blue-600').onclick = toggleView;
@@ -332,13 +217,7 @@ document.querySelectorAll(".edit-button").forEach(button => {
     }
 
 
-    function toggleEditView() {
-        const tableView = document.getElementById('tableView');
-        const editFormView = document.getElementById('editFormView');
-        
-        tableView.classList.toggle('hidden');
-        editFormView.classList.toggle('hidden');
-    }
+
 </script>
 </body>
 </html>
