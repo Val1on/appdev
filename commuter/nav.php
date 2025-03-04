@@ -23,7 +23,7 @@
           <div class="hidden lg:flex items-center space-x-4">
             <a href="dashboard.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Dashboard</a>
             <a href="book.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Trips</a>
-             <a href="cars.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Cars</a>
+             <a href="cars.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Payment</a>
           </div>
         </div>
 
@@ -148,12 +148,14 @@
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              <span class="transform-gpu">Cars</span>
+              <span class="transform-gpu">Payments</span>
             </div>
             <svg class="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
             </a>
+
+            
 
             <a href="profile.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'profileSetting.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">

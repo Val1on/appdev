@@ -147,76 +147,7 @@ $result = mysqli_query($con, $query);
 </div>
 
 
-<div id="editFormView" class="bg-gray-800 shadow-xl rounded-lg overflow-hidden hidden max-w-5xl mx-auto p-2 sm:p-4 lg:p-6">
- 
-    <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 border-b border-gray-700">
-        <h2 class="text-base sm:text-lg lg:text-xl font-semibold text-white">Edit Car</h2>
-    </div>
-    
-  
-    <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5">
-        <form id="editCarForm" class="space-y-3 sm:space-y-4 lg:space-y-5">
-            <input type="hidden" id="editCarId">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-          
-                <div class="relative">
-                    <label for="editCarModel" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">Car Model</label>
-                    <input type="text" name="editCarModel" id="editCarModel" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
 
-        
-                <div class="relative">
-                    <label for="editManufacturer" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">Manufacturer</label>
-                    <input type="text" name="editManufacturer" id="editManufacturer" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
-           
-                <div class="relative">
-                    <label for="editPlateNumber" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">Plate Number</label>
-                    <input type="text" name="editPlateNumber" id="editPlateNumber" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-
-      
-                <div class="relative">
-                    <label for="editCarOwnerId" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">Car Owner ID</label>
-                    <input type="text" name="editCarOwnerId" id="editCarOwnerId" required 
-                        class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                        bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                        focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                        focus:ring-opacity-50 transition-colors duration-200">
-                </div>
-            </div>
-
-  
-            <div class="flex justify-end space-x-2 sm:space-x-3 lg:space-x-4 pt-3 sm:pt-4 lg:pt-5 border-t border-gray-700 mt-3 sm:mt-4 lg:mt-5">
-                <button type="button" onclick="toggleEditView()" 
-                    class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
-                    text-gray-300 bg-gray-700 rounded-md hover:bg-gray-600 
-                    focus:outline-none focus:ring-1 focus:ring-gray-500 transition-colors duration-200">
-                    Cancel
-                </button>
-                <button type="submit" 
-                    class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
-                    text-white bg-blue-600 rounded-md hover:bg-blue-700 
-                    focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors duration-200">
-                    Update Car
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
 </div>
 <script>
     document.querySelector('.bg-blue-600').onclick = toggleView;

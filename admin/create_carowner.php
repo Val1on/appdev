@@ -24,7 +24,7 @@ function addCarOwner($con) {
     if (mysqli_query($con, $sql)) {
         echo "<script>
                 alert('Car owner added successfully!');
-                window.location.href = 'car_owners.php';
+                window.location.href = 'carowner.php';
               </script>";
     } else {
         echo json_encode(["status" => "error", "message" => mysqli_error($con)]);

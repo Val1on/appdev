@@ -33,7 +33,7 @@
 
             <div class="bg-gray-800 rounded-xl shadow-xl border border-gray-700 p-6">
                 <h2 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-100 mb-4">Today's Earnings</h2>
-                <p class="text-3xl sm:text-4xl lg:text-5xl font-bold text-red-400">₱1,000.00</p>
+                <p class="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue-400">₱1,000.00</p>
             </div>
 
             <div class="bg-gray-800 rounded-xl shadow-xl border border-gray-700 p-6">
