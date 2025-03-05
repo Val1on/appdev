@@ -51,7 +51,7 @@ $result = mysqli_query($con, $sql);
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body class="bg-gray-700">
+<body class="white">
      <?php include 'nav.php'; ?>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -59,10 +59,10 @@ $result = mysqli_query($con, $sql);
         <div class="mb-8">
             <div class="flex justify-between items-center">
                 <div>
-                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100">My Cars</h1>
-                    <p class="mt-2 text-gray-400">Manage your registered cars</p>
+                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600">My Cars</h1>
+                    <p class="mt-2 text-green-400">Manage your registered cars</p>
                 </div>
-                <button id="addVehicleBtn" class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 transition-all duration-200 flex items-center" data-bs-toggle="modal" data-bs-target="#addCarModal">
+                <button id="addVehicleBtn" class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-green-800 transition-all duration-200 flex items-center" data-bs-toggle="modal" data-bs-target="#addCarModal">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                     </svg>
@@ -78,10 +78,10 @@ $result = mysqli_query($con, $sql);
         <?php
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo '<div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300">';
+                        echo '<div class="bg-green-800 rounded-xl p-6 border border-green-700 hover:border-green-500 transition-all duration-300">';
                         echo '<div class="flex items-center justify-between mb-4">';
-                        echo '<div class="p-3 bg-blue-500 bg-opacity-20 rounded-lg">';
-                        echo '<svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
+                        echo '<div class="p-3 bg-green-500 bg-opacity-20 rounded-lg">';
+                        echo '<svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
                         echo '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"/>';
                         echo '</svg>';
                         echo '</div>';
@@ -92,23 +92,23 @@ $result = mysqli_query($con, $sql);
                         echo '<img class="w-full h-48 object-cover rounded-lg mb-4" src="' . $row["carImage"] . '" alt="Car Image">';
 
                     
-                        echo '<h3 class="text-xl font-semibold text-gray-100">' . $row["carModel"] . '</h3>';
+                        echo '<h3 class="text-xl font-semibold text-green-100">' . $row["carModel"] . '</h3>';
                         echo '<div class="mt-4 space-y-2">';
-                        echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Plate No:</span><span class="text-gray-100">' . $row["plateNum"] . '</span></p>';
-                        echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Color:</span><span class="text-gray-100">' . $row["color"] . '</span></p>';
-                        echo '<p class="text-sm text-gray-400 flex items-center"><span class="w-24">Seats:</span><span class="text-gray-100">' . $row["number_of_seats"] . '</span></p>';
+                        echo '<p class="text-sm text-green-400 flex items-center"><span class="w-24">Plate No:</span><span class="text-green-100">' . $row["plateNum"] . '</span></p>';
+                        echo '<p class="text-sm text-green-400 flex items-center"><span class="w-24">Color:</span><span class="text-green-100">' . $row["color"] . '</span></p>';
+                        echo '<p class="text-sm text-green-400 flex items-center"><span class="w-24">Seats:</span><span class="text-green-100">' . $row["number_of_seats"] . '</span></p>';
                         echo '</div>';
 
                        
                         echo '<div class="mt-6 flex justify-end space-x-3">';
-                        echo '<button id="editVehicleBtn" class="px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">Edit</button>';
+                        echo '<button id="editVehicleBtn" class="px-3 py-1.5 text-sm font-medium text-green-400 hover:text-green-100 transition-colors duration-200">Edit</button>';
                         echo '<button class="px-3 py-1.5 text-sm font-medium text-red-400 hover:text-red-300 transition-colors duration-200">Delete</button>';
                         echo '</div>';
 
                         echo '</div>'; 
                     }
                 } else {
-                    echo '<p class="text-gray-400">No cars registered.</p>';
+                    echo '<p class="text-green-400">No cars registered.</p>';
                 }
 
                 mysqli_close($con);
@@ -116,10 +116,10 @@ $result = mysqli_query($con, $sql);
         </div> 
 
     
-        <div id="editVehicleForm" class="hidden bg-gray-800 rounded-xl p-6 border border-gray-700">
+        <div id="editVehicleForm" class="hidden bg-green-800 rounded-xl p-6 border border-green-700">
             <div class="flex items-center justify-between mb-6">
-                <h2 class="text-xl font-semibold text-gray-100">Edit Vehicle</h2>
-                <button type="button" class="text-gray-400 hover:text-gray-200">
+                <h2 class="text-xl font-semibold text-green-100">Edit Vehicle</h2>
+                <button type="button" class="text-green-400 hover:text-green-200">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                     </svg>
@@ -130,22 +130,22 @@ $result = mysqli_query($con, $sql);
 
             
                 <div>
-                    <label class="block text-sm font-medium text-gray-200 mb-2">Current Vehicle Image</label>
-                    <div class="relative w-full h-48 rounded-lg overflow-hidden bg-gray-700">
+                    <label class="block text-sm font-medium text-green-200 mb-2">Current Vehicle Image</label>
+                    <div class="relative w-full h-48 rounded-lg overflow-hidden bg-green-700">
                         <img id="current-vehicle-image" class="w-full h-full object-cover" src="path_to_current_image.jpg" alt="Current vehicle image">
                     </div>
                 </div>
 
     
                 <div>
-                    <label class="block text-sm font-medium text-gray-200 mb-2">Update Vehicle Image</label>
-                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-600 rounded-lg hover:border-blue-500 transition-all duration-200">
+                    <label class="block text-sm font-medium text-green-200 mb-2">Update Vehicle Image</label>
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-green-600 rounded-lg hover:border-green-500 transition-all duration-200">
                         <div class="space-y-1 text-center">
-                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                            <svg class="mx-auto h-12 w-12 text-green-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                 <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <div class="flex text-sm text-gray-400">
-                                <label for="edit-vehicle-image" class="relative cursor-pointer bg-gray-700 rounded-md font-medium text-blue-500 hover:text-blue-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                            <div class="flex text-sm text-green-400">
+                                <label for="edit-vehicle-image" class="relative cursor-pointer bg-green-700 rounded-md font-medium text-green-500 hover:text-green-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-green-500">
                                     <span class="px-2 py-1">Upload new photo</span>
                                     <input id="edit-vehicle-image" name="vehicle_image" type="file" class="sr-only" accept="image/*">
                                 </label>
@@ -157,30 +157,30 @@ $result = mysqli_query($con, $sql);
             
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Vehicle Model</label>
+                        <label class="block text-sm font-medium text-green-200">Vehicle Model</label>
                         <input type="text" name="model" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. Toyota Vios 2020" 
                             value="Toyota Vios 2020">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Plate Number</label>
+                        <label class="block text-sm font-medium text-green-200">Plate Number</label>
                         <input type="text" name="plate_no" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. ABC-123"
                             value="ABC-123">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Color</label>
+                        <label class="block text-sm font-medium text-green-200">Color</label>
                         <input type="text" name="color" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. Silver"
                             value="Silver">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Number of Seats</label>
+                        <label class="block text-sm font-medium text-green-200">Number of Seats</label>
                         <input type="number" name="seats" min="1" max="8" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. 4"
                             value="4">
                     </div>
@@ -191,29 +191,29 @@ $result = mysqli_query($con, $sql);
 
 
                 <div class="flex justify-end space-x-3">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-green-400 hover:text-green-100 transition-colors duration-200">
                         Cancel
                     </button>
-                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 transition-all duration-200">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-green-800 transition-all duration-200">
                         Update Vehicle
                     </button>
                 </div>
             </form>
         </div>
 
-        <div id="addVehicleForm" class="hidden bg-gray-800 rounded-xl p-6 border-2 border-dashed border-gray-700 hover:border-blue-500 transition-all duration-300">
+        <div id="addVehicleForm" class="hidden bg-green-800 rounded-xl p-6 border-2 border-dashed border-green-700 hover:border-green-500 transition-all duration-300">
             <form action="add_car.php" method="POST" enctype="multipart/form-data" class="space-y-6">
              
                 <div>
-                    <label class="block text-sm font-medium text-gray-200 mb-2">Vehicle Image</label>
+                    <label class="block text-sm font-medium text-green-200 mb-2">Vehicle Image</label>
                     
-                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-gray-600 rounded-lg hover:border-blue-500 transition-all duration-200">
+                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-dashed border-green-600 rounded-lg hover:border-green-500 transition-all duration-200">
                         <div class="space-y-1 text-center">
-                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                            <svg class="mx-auto h-12 w-12 text-green-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                                 <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <div class="flex text-sm text-gray-400">
-                                <label for="vehicle-image" class="relative cursor-pointer bg-gray-700 rounded-md font-medium text-blue-500 hover:text-blue-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
+                            <div class="flex text-sm text-green-400">
+                                <label for="vehicle-image" class="relative cursor-pointer bg-green-700 rounded-md font-medium text-green-500 hover:text-green-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-green-500">
                                     <span class="px-2 py-1">Upload a photo</span>
                                     <input id="vehicle-image" name="carImage" type="file" class="sr-only" accept="image/*" required>
                                 </label>
@@ -225,7 +225,7 @@ $result = mysqli_query($con, $sql);
 
             
                 <div class="hidden" id="image-preview-container">
-                    <label class="block text-sm font-medium text-gray-200 mb-2">Preview</label>
+                    <label class="block text-sm font-medium text-green-200 mb-2">Preview</label>
                     <div class="relative w-full h-48 rounded-lg overflow-hidden">
                         <img id="image-preview" class="w-full h-full object-cover" src="#" alt="Vehicle preview">
                         <button type="button" id="remove-image" class="absolute top-2 right-2 p-1 bg-red-500 text-white rounded-full hover:bg-red-600 focus:outline-none">
@@ -239,40 +239,40 @@ $result = mysqli_query($con, $sql);
             
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Vehicle Model</label>
+                        <label class="block text-sm font-medium text-green-200">Vehicle Model</label>
                         <input type="text" name="carModel" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. Toyota Vios 2020">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Plate Number</label>
+                        <label class="block text-sm font-medium text-green-200">Plate Number</label>
                         <input type="text" name="plateNum" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. ABC-123">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Color</label>
+                        <label class="block text-sm font-medium text-green-200">Color</label>
                         <input type="text" name="color" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. Silver">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Number of Seats</label>
+                        <label class="block text-sm font-medium text-green-200">Number of Seats</label>
                         <input type="number" name="number_of_seats" min="1" max="8" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. 4">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Vehicle Manufacturer</label>
+                        <label class="block text-sm font-medium text-green-200">Vehicle Manufacturer</label>
                         <input type="text" name="carManufacturer" required 
-                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50"
                             placeholder="e.g. Toyota">
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-200">Vehicle Status</label>
-                        <select name="carStatus" required class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                        <label class="block text-sm font-medium text-green-200">Vehicle Status</label>
+                        <select name="carStatus" required class="mt-1 block w-full rounded-lg bg-green-700 border-green-600 text-green-100 shadow-sm focus:border-green-500 focus:ring focus:ring-green-500 focus:ring-opacity-50">
                             <option value="Available">Available</option>
                             <option value="Unavailable">Unavailable</option>
                         </select>
@@ -285,10 +285,10 @@ $result = mysqli_query($con, $sql);
 
                 </div>
                 <div class="flex justify-end space-x-3">
-                    <button type="button" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
+                    <button type="button" class="px-4 py-2 text-sm font-medium text-green-400 hover:text-green-100 transition-colors duration-200">
                         Cancel
                     </button>
-                    <button type="submit" class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 transition-all duration-200">
+                    <button type="submit" class="px-4 py-2 bg-green-500 text-white text-sm font-medium rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 focus:ring-offset-green-800 transition-all duration-200">
                         Save Vehicle
                     </button>
                 </div>

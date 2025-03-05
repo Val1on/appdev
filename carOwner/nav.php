@@ -10,7 +10,7 @@
     />
   </head>
   <body>
-    <nav class="bg-gray-900 p-4">
+    <nav class="bg-green-900 p-4">
       <div class="container mx-auto flex items-center justify-between">
       
         <div class="flex items-center space-x-4">
@@ -21,17 +21,17 @@
           />
          
           <div class="hidden lg:flex items-center space-x-4">
-            <a href="dashboard.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Dashboard</a>
-            <a href="trips.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Trips</a>
-            <a href="cars.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Cars</a>
-            <a href="earnings.php" class="text-gray-400 hover:text-gray-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-gray-800">Earnings</a>
+            <a href="dashboard.php" class="text-white hover:text-green-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-green-800">Dashboard</a>
+            <a href="trips.php" class="text-white hover:text-green-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-green-800">Trips</a>
+            <a href="cars.php" class="text-white hover:text-green-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-green-800">Cars</a>
+            <a href="earnings.php" class="text-white hover:text-green-100 px-2 sm:px-3 py-1 sm:py-2 rounded-md text-xs sm:text-sm md:text-base font-medium hover:bg-green-800">Earnings</a>
           </div>
         </div>
 
         
         <div class="flex items-center space-x-4">
            
-            <a href="post.php" class="hidden md:flex text-gray-400 hover:text-gray-100 px-3 py-1 rounded-md text-sm font-medium hover:bg-gray-800 border border-gray-600 items-center">
+            <a href="post.php" class="hidden md:flex text-white hover:text-green-100 px-3 py-1 rounded-md text-sm font-medium hover:bg-green-800 border border-green-600 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
@@ -42,7 +42,7 @@
 
 
         
-          <button class="text-gray-400 hover:text-gray-100 relative">
+          <button class="text-white hover:text-green-100 relative">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
             </svg>
@@ -52,14 +52,14 @@
 
           
           <img
-            class="h-8 w-8 rounded-full border-2 border-gray-400"
+            class="h-8 w-8 rounded-full border-2 border-green-400"
             src="https://via.placeholder.com/40"
             alt=""
           />
           
           <button
             id="burger"
-            class="text-gray-100 focus:outline-none"
+            class="text-green-100 focus:outline-none"
           >
             <svg
               class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"
@@ -81,10 +81,10 @@
     </nav>
 
       
-      <div id="menu" class="hidden fixed inset-y-0 right-0 bg-gray-900 bg-opacity-95 z-50 flex flex-col items-center justify-center 
+      <div id="menu" class="hidden fixed inset-y-0 right-0 bg-green-900 bg-opacity-95 z-50 flex flex-col items-center justify-center 
     w-full transform transition-all duration-700 ease-in-out opacity-0">
         <!-- Close Button -->
-        <button id="close-menu" class="absolute top-6 right-6 text-gray-300 hover:text-white">
+        <button id="close-menu" class="absolute top-6 right-6 text-green-300 hover:text-white">
           <svg
         class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6"
         xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@
 
      
 
-            <a href="dashboard.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+            <a href="dashboard.php" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'dashboard.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -118,7 +118,7 @@
             </svg>
             </a>
 
-                <a href="post.php" class="flex md:hidden items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'accounts.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+                <a href="post.php" class="flex md:hidden items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'accounts.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -132,7 +132,7 @@
             
   
 
-            <a href="trips.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'accounts.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+            <a href="trips.php" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'accounts.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -144,7 +144,7 @@
             </svg>
             </a>
 
-            <a href="cars.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+            <a href="cars.php" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -156,7 +156,7 @@
             </svg>
             </a>
 
-              <a href="cars.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+              <a href="cars.php" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -168,7 +168,7 @@
             </svg>
             </a>
 
-            <a href="withdraw.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+            <a href="withdraw.php" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'reports.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -180,7 +180,7 @@
             </svg>
             </a>
 
-            <a href="profile.php" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'profileSetting.php' ? 'bg-gray-800 text-gray-100' : ''; ?>">
+            <a href="profile.php" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200 <?php echo basename($_SERVER['PHP_SELF']) == 'profileSetting.php' ? 'bg-green-800 text-green-100' : ''; ?>">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -192,7 +192,7 @@
             </svg>
             </a>
 
-            <a href="#" class="flex items-center justify-between text-gray-400 hover:text-gray-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-gray-800 transition-colors duration-200">
+            <a href="#" class="flex items-center justify-between text-white hover:text-green-100 p-3 sm:p-4 lg:p-5 rounded-md text-xs sm:text-sm lg:text-base font-medium hover:bg-green-800 transition-colors duration-200">
             <div class="flex items-center space-x-3 sm:space-x-4">
               <svg class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

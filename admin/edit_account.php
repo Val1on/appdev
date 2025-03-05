@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+.php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,104 +39,115 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Edit Account</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-700 min-h-screen flex items-center justify-center">
-    <div class="bg-gray-800 shadow-xl rounded-lg overflow-hidden max-w-5xl w-full mx-2 p-2 sm:p-4 lg:p-6">
-        <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 border-b border-gray-700">
-            <h2 class="text-base sm:text-lg lg:text-xl font-semibold text-white">Edit Account</h2>
-        </div>
-        <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5">
-            <form action="edit_account.php" method="POST" class="space-y-3 sm:space-y-4 lg:space-y-5">
-                <input type="hidden" name="accountNO" value="<?php echo $account['accountNO']; ?>">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-                    <div class="relative">
-                        <label for="firstName" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            First Name
-                        </label>
-                        <input type="text" name="firstName" id="firstName" value="<?php echo $account['firstName']; ?>" required 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                    </div>
-                    <div class="relative">
-                        <label for="lastName" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            Last Name
-                        </label>
-                        <input type="text" name="lastName" id="lastName" value="<?php echo $account['lastName']; ?>" required 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                    </div>
-                    <div class="relative">
-                        <label for="middleInitial" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            Middle Initial
-                        </label>
-                        <input type="text" name="middleInitial" id="middleInitial" value="<?php echo $account['middleInitial']; ?>" 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                    </div>
-                    <div class="relative">
-                        <label for="contactNO" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            Contact No
-                        </label>
-                        <input type="text" name="contactNO" id="contactNO" value="<?php echo $account['contactNO']; ?>" required 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                    </div>
-                    <div class="relative">
-                        <label for="email" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            Email
-                        </label>
-                        <input type="email" name="email" id="email" value="<?php echo $account['email']; ?>" required 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                    </div>
-                    <div class="relative">
-                        <label for="role" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            Role
-                        </label>
-                        <select name="role" id="role" required 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                            <option value="Admin" <?php echo $account['role'] == 'Admin' ? 'selected' : ''; ?>>Admin</option>
-                            <option value="User" <?php echo $account['role'] == 'User' ? 'selected' : ''; ?>>User</option>
-                        </select>
-                    </div>
-                    <div class="relative">
-                        <label for="rating" class="block text-xs sm:text-sm lg:text-base font-medium text-gray-300 mb-1 sm:mb-2">
-                            Rating
-                        </label>
-                        <input type="number" name="rating" id="rating" value="<?php echo $account['rating']; ?>" required 
-                            class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
-                            bg-gray-700 border border-gray-600 text-gray-100 placeholder-gray-400 
-                            focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 
-                            focus:ring-opacity-50 transition-colors duration-200">
-                    </div>
+<body class="bg-white">
+    <?php include '../includes/sidebar.php'; ?>
+
+    <div class="lg:ml-64 p-4">
+        <div class="container mx-auto px-2 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
+            <div id="" class="bg-green-600 shadow-xl rounded-lg overflow-hidden max-w-5xl mx-auto p-2 sm:p-4 lg:p-6">
+                <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5 border-b border-green-600 bg-green-600">
+                    <h2 class="text-base sm:text-lg lg:text-xl font-semibold text-white">Edit Account</h2>
                 </div>
-                <div class="flex justify-end space-x-2 sm:space-x-3 lg:space-x-4 pt-3 sm:pt-4 lg:pt-5 border-t border-gray-700 mt-3 sm:mt-4 lg:mt-5">
-                    <a href="accounts.php" 
-                        class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
-                        text-gray-300 bg-gray-700 rounded-md hover:bg-gray-600 
-                        focus:outline-none focus:ring-1 focus:ring-gray-500 transition-colors duration-200">
-                        Cancel
-                    </a>
-                    <button type="submit" 
-                        class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
-                        text-white bg-blue-600 rounded-md hover:bg-blue-700 
-                        focus:outline-none focus:ring-1 focus:ring-blue-500 transition-colors duration-200">
-                        Update Account
-                    </button>
+
+                <div class="px-3 sm:px-4 lg:px-6 py-3 sm:py-4 lg:py-5">
+                    <form action="edit_account.php" method="POST" class="space-y-3 sm:space-y-4 lg:space-y-5">
+                        <input type="hidden" name="accountNO" value="<?php echo $account['accountNO']; ?>">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+                            <!-- First Name -->
+                            <div class="relative">
+                                <label for="firstName" class="block text-xs sm:text-sm lg:text-base font-medium text-white mb-1 sm:mb-2">
+                                    First Name
+                                </label>
+                                <input type="text" name="firstName" id="firstName" value="<?php echo $account['firstName']; ?>" required 
+                                    class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
+                                    bg-green-700 border border-green-600 text-green-100 placeholder-green-400 
+                                    focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 
+                                    focus:ring-opacity-50 transition-colors duration-200">
+                            </div>
+
+                            <!-- Last Name -->
+                            <div class="relative">
+                                <label for="lastName" class="block text-xs sm:text-sm lg:text-base font-medium text-white mb-1 sm:mb-2">
+                                    Last Name
+                                </label>
+                                <input type="text" name="lastName" id="lastName" value="<?php echo $account['lastName']; ?>" required 
+                                    class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
+                                    bg-green-700 border border-green-600 text-green-100 placeholder-green-400 
+                                    focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 
+                                    focus:ring-opacity-50 transition-colors duration-200">
+                            </div>
+
+                            <!-- Middle Initial -->
+                            <div class="relative">
+                                <label for="middleInitial" class="block text-xs sm:text-sm lg:text-base font-medium text-white mb-1 sm:mb-2">
+                                    MI
+                                </label>
+                                <input type="text" name="middleInitial" id="middleInitial" value="<?php echo $account['middleInitial']; ?>" 
+                                    class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
+                                    bg-green-700 border border-green-600 text-green-100 placeholder-green-400 
+                                    focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 
+                                    focus:ring-opacity-50 transition-colors duration-200">
+                            </div>
+
+                            <!-- Contact -->
+                            <div class="relative">
+                                <label for="contactNO" class="block text-xs sm:text-sm lg:text-base font-medium text-white mb-1 sm:mb-2">
+                                    Contact
+                                </label>
+                                <input type="text" name="contactNO" id="contactNO" value="<?php echo $account['contactNO']; ?>" required 
+                                    class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
+                                    bg-green-700 border border-green-600 text-green-100 placeholder-green-400 
+                                    focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 
+                                    focus:ring-opacity-50 transition-colors duration-200">
+                            </div>
+
+                            <!-- Email -->
+                            <div class="relative">
+                                <label for="email" class="block text-xs sm:text-sm lg:text-base font-medium text-white mb-1 sm:mb-2">
+                                    Email
+                                </label>
+                                <input type="email" name="email" id="email" value="<?php echo $account['email']; ?>" required 
+                                    class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
+                                    bg-green-700 border border-green-600 text-green-100 placeholder-green-400 
+                                    focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 
+                                    focus:ring-opacity-50 transition-colors duration-200">
+                            </div>
+
+                            <!-- Role -->
+                            <div class="relative">
+                                <label for="role" class="block text-xs sm:text-sm lg:text-base font-medium text-white mb-1 sm:mb-2">
+                                    Role
+                                </label>
+                                <select name="role" id="role" required 
+                                    class="block w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base rounded-md 
+                                    bg-green-700 border border-green-600 text-green-100 placeholder-green-400 
+                                    focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 
+                                    focus:ring-opacity-50 transition-colors duration-200">
+                                    <option value="Admin" <?php echo $account['role'] == 'Admin' ? 'selected' : ''; ?>>Admin</option>
+                                    <option value="CarOwner" <?php echo $account['role'] == 'CarOwner' ? 'selected' : ''; ?>>Car Owner</option>
+                                    <option value="Commuter" <?php echo $account['role'] == 'Commuter' ? 'selected' : ''; ?>>Commuter</option>
+                                    <option value="Moderator" <?php echo $account['role'] == 'Moderator' ? 'selected' : ''; ?>>Moderator</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-end space-x-2 sm:space-x-3 lg:space-x-4 pt-3 sm:pt-4 lg:pt-5 border-t border-green-700 mt-3 sm:mt-4 lg:mt-5">
+                            <button type="button" onclick="window.location.href='accounts.php'" 
+                                class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
+                                text-white bg-green-700 rounded-md hover:bg-green-600 
+                                focus:outline-none focus:ring-1 focus:ring-green-500 transition-colors duration-200">
+                                Cancel
+                            </button>
+                            <button type="submit" 
+                                class="px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm lg:text-base font-medium 
+                                text-white bg-green-500 rounded-md hover:bg-green-700 
+                                focus:outline-none focus:ring-1 focus:ring-green-500 transition-colors duration-200">
+                                Update Account
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </body>

@@ -6,17 +6,17 @@
     <title>Admin Profile</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-700">
+<body class="white">
     <?php include '../includes/sidebar.php'; ?>
     <div class="lg:ml-64 p-4">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
-        <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-xl overflow-hidden">
+        <div class="max-w-4xl mx-auto bg-green-600 rounded-lg shadow-xl overflow-hidden">
        
-            <div class="border-b border-gray-700 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+            <div class="border-b border-green-700 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
                 <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
                     <div class="relative">
                         <img id="profilePreview" src="https://via.placeholder.com/128" alt="Profile Picture" 
-                            class="h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32 rounded-full border-4 border-gray-700 shadow-lg object-cover">
+                            class="h-24 w-24 sm:h-28 sm:w-28 lg:h-32 lg:w-32 rounded-full border-4 border-green-700 shadow-lg object-cover">
                         <form id="profileImageForm">
                             <label for="profileImage" class="absolute bottom-0 right-0 cursor-pointer">
                                 <div class="bg-blue-600 p-1.5 sm:p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="text-center sm:text-left">
                         <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Admin Profile</h1>
-                        <p class="text-sm sm:text-base text-gray-400">Manage your personal information</p>
+                        <p class="text-sm sm:text-base text-white">Manage your personal information</p>
                     </div>
                 </div>
             </div>
@@ -41,59 +41,59 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
      
                     <div class="relative">
-                        <label for="firstName" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">First Name</label>
+                        <label for="firstName" class="block text-xs sm:text-sm font-medium text-white mb-1 sm:mb-2">First Name</label>
                         <input type="text" name="firstName" id="firstName" required 
-                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-gray-700 border border-gray-600 text-gray-100 
-                            placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 
-                            focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-green-700 border border-green-600 text-gray-100 
+                            placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 
+                            focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
                             placeholder="Enter your first name">
                     </div>
 
                
                     <div class="relative">
-                        <label for="lastName" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Last Name</label>
+                        <label for="lastName" class="block text-xs sm:text-sm font-medium text-white mb-1 sm:mb-2">Last Name</label>
                         <input type="text" name="lastName" id="lastName" required 
-                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-gray-700 border border-gray-600 text-gray-100 
-                            placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 
-                            focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-green-700 border border-green-600 text-gray-100 
+                            placeholder-gray-400 focus:outline-none focus:green-blue-500 focus:ring-2 
+                            focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
                             placeholder="Enter your last name">
                     </div>
 
           
                     <div class="relative">
-                        <label for="email" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Email</label>
+                        <label for="email" class="block text-xs sm:text-sm font-medium text-white mb-1 sm:mb-2">Email</label>
                         <input type="email" name="email" id="email" required 
-                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-gray-700 border border-gray-600 text-gray-100 
-                            placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 
-                            focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-green-700 border border-green-600 text-gray-100 
+                            placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 
+                            focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
                             placeholder="Enter your email">
                     </div>
 
             
                     <div class="relative">
-                        <label for="phone" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Phone Number</label>
+                        <label for="phone" class="block text-xs sm:text-sm font-medium text-white mb-1 sm:mb-2">Phone Number</label>
                         <input type="tel" name="phone" id="phone" required 
-                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-gray-700 border border-gray-600 text-gray-100 
-                            placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 
-                            focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-green-700 border border-green-600 text-gray-100 
+                            placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 
+                            focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
                             placeholder="Enter your phone number">
                     </div>
 
              
                     <div class="relative">
-                        <label for="address" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Address</label>
+                        <label for="address" class="block text-xs sm:text-sm font-medium text-white mb-1 sm:mb-2">Address</label>
                         <input type="text" name="address" id="address" required 
-                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-gray-700 border border-gray-600 text-gray-100 
-                            placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 
-                            focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-200"
+                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-green-700 border border-green-600 text-gray-100 
+                            placeholder-gray-400 focus:outline-none focus:border-green-500 focus:ring-2 
+                            focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-200"
                             placeholder="Enter your address">
                     </div>
 
                     <div class="relative">
-                        <label for="role" class="block text-xs sm:text-sm font-medium text-gray-300 mb-1 sm:mb-2">Role</label>
+                        <label for="role" class="block text-xs sm:text-sm font-medium text-white mb-1 sm:mb-2">Role</label>
                         <select name="role" id="role" required 
-                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-gray-700 border border-gray-600 text-gray-100 
-                            focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500 
+                            class="block w-full px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm rounded-lg bg-green-700 border border-green-600 text-white
+                            focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500 
                             focus:ring-opacity-50 transition-colors duration-200">
                             <option value="" disabled>Select Role</option>
                             <option value="admin">Admin</option>
@@ -107,8 +107,8 @@
                 <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-4 border-t border-gray-700 pt-4 sm:pt-6">
                     
                     <button type="submit" 
-                        class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-blue-600 rounded-lg
-                        hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 
+                        class="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm font-medium text-white bg-green-500 rounded-lg
+                        hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-blue-500 
                         transition-colors duration-200">
                         Save Changes
                     </button>

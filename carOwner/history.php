@@ -22,7 +22,7 @@ $query = "
     p.time 
 FROM booking b
 JOIN destination d ON b.destinationID = d.destinationID
-JOIN post p ON b.carOwnerID = p.carownerNO
+JOIN post p ON b.carOwnerID = p.carownerID
 WHERE b.carOwnerID = ?;
 
 ";
@@ -41,22 +41,24 @@ $result = $stmt->get_result();
     <title>Trip History - Car Owner</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-gray-700">
+<body class="white">
+    
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100">Trip History</h1>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-green-600">Trip History</h1>
         </div>
 
-        <div class="mb-6 border-b border-gray-700">
+        <div class="mb-6 border-b border-green-700">
             <div class="flex justify-between items-center">
                 <nav class="flex space-x-8">
-                    <a href="trips.php" class="px-1 py-4 text-gray-400 hover:text-gray-100 font-medium border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200">
+                    <a href="trips.php" class="px-1 py-4 text-green-500 hover:text-green-100 font-medium border-b-2 border-transparent hover:border-green-400 transition-colors duration-200">
                         Trips
                     </a>
-                    <a href="request.php" class="px-1 py-4 text-gray-400 hover:text-gray-100 font-medium border-b-2 border-transparent hover:border-gray-400 transition-colors duration-200">
+                    <a href="request.php" class="px-1 py-4 text-green-500 hover:text-green-100 font-medium border-b-2 border-transparent hover:border-green-400 transition-colors duration-200">
                         Requests
                     </a>
-                    <a href="history.php" class="px-1 py-4 text-blue-400 border-b-2 border-blue-400 font-medium">
+                    <a href="history.php" class="px-1 py-4 text-green-500 border-b-2 border-green-400 font-medium">
                         History
                     </a>
                 </nav>
@@ -66,7 +68,7 @@ $result = $stmt->get_result();
         <div class="space-y-4">
             <?php if ($result->num_rows > 0): ?>
                 <?php while ($trip = $result->fetch_assoc()): ?>
-                    <div class="bg-gray-800 rounded-xl p-4 sm:p-6 border border-gray-700">
+                    <div class="bg-green-800 rounded-xl p-4 sm:p-6 border border-green-700">
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div class="flex items-start space-x-4">
                                 <div class="flex-shrink-0">
@@ -78,7 +80,7 @@ $result = $stmt->get_result();
                                 </div>
                                 <div>
                                     <div class="flex items-center space-x-2">
-                                        <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-100">
+                                        <h3 class="text-lg sm:text-xl lg:text-2xl font-semibold text-green-100">
                                             <?= htmlspecialchars($trip['departure']) ?> to <?= htmlspecialchars($trip['destination']) ?>
                                         </h3>
                                         <span class="px-2 py-1 text-xs sm:text-sm font-medium rounded-full bg-green-100 text-green-800">
@@ -86,7 +88,7 @@ $result = $stmt->get_result();
                                         </span>
                                     </div>
                                     <div class="mt-2 space-y-1">
-                                        <p class="text-sm sm:text-base text-gray-400">
+                                        <p class="text-sm sm:text-base text-green-400">
                                             <?= date("M d, Y", strtotime($trip['date'])) ?> • <?= date("h:i A", strtotime($trip['time'])) ?>
                                         </p>
                                         <div class="flex items-center space-x-2">
@@ -94,7 +96,7 @@ $result = $stmt->get_result();
                                                 <svg class="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                                                 </svg>
-                                                <p class="text-sm sm:text-base text-gray-400 ml-1">
+                                                <p class="text-sm sm:text-base text-green-400 ml-1">
                                                     <?= htmlspecialchars($trip['rating']) ?: 'No rating' ?>
                                                 </p>
                                             </div>
@@ -106,7 +108,7 @@ $result = $stmt->get_result();
                                 </div>
                             </div>
                             <div class="flex items-center">
-                                <a href="tripCompleted.php?id=<?= $trip['booking_id'] ?>" class="px-4 py-2 text-sm sm:text-base font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
+                                <a href="tripCompleted.php?id=<?= $trip['booking_id'] ?>" class="px-4 py-2 text-sm sm:text-base font-medium text-green-400 hover:text-green-100 transition-colors duration-200">
                                     View Details
                                 </a>
                             </div>
@@ -114,7 +116,7 @@ $result = $stmt->get_result();
                     </div>
                 <?php endwhile; ?>
             <?php else: ?>
-                <p class="text-gray-400 text-center">No completed trips found.</p>
+                <p class="text-green-400 text-center">No completed trips found.</p>
             <?php endif; ?>
         </div>
     </div>
