@@ -1,4 +1,35 @@
 <?php
+
+/*
+$carOwnerID = isset($_POST["carOwnerID"]) ? intval($_POST["carOwnerID"]) : 0;
+
+$checkOwner = $con->prepare("SELECT ownerNO FROM carowner WHERE ownerNO = ?");
+$checkOwner->bind_param("i", $carOwnerID);
+$checkOwner->execute();
+$result = $checkOwner->get_result();
+
+if ($result->num_rows == 0) {
+    die(json_encode(["success" => false, "message" => "Invalid carOwnerID. No matching record in carowner table."]));
+}
+$checkOwner->close();
+
+
+session_start();
+if (!isset($_SESSION['ownerNO'])) {
+    echo "<script>console.log('ownerNO is not set in session');</script>";
+} else {
+    echo "<script>console.log('ownerNO: " . $_SESSION['ownerNO'] . "');</script>";
+}
+
+$carOwnerID = isset($_POST["carOwnerID"]) ? intval($_POST["carOwnerID"]) : 1; // Temporary default ID = 1
+
+<input type="hidden" name="carOwnerID" value="<?php echo isset($_SESSION['ownerNO']) ? $_SESSION['ownerNO'] : ''; ?>"> - pag may log - in na
+
+
+note: problem dito wala pang log-in so pag magregister ng car hindi properly na kukuha yung ownerID and HINDI din nababato ng properly yung ownerID sa database 
+kaya nageerror siya na hindi nag-eexist yung foreign key
+*/
+
 include 'database.php';
 
 
@@ -18,6 +49,7 @@ $result = mysqli_query($con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicle Management - Car Owner</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="bg-gray-700">
      <?php include 'nav.php'; ?>
@@ -30,7 +62,7 @@ $result = mysqli_query($con, $sql);
                     <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-100">My Cars</h1>
                     <p class="mt-2 text-gray-400">Manage your registered cars</p>
                 </div>
-                <button id="addVehicleBtn" class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 transition-all duration-200 flex items-center">
+                <button id="addVehicleBtn" class="px-4 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:ring-offset-gray-800 transition-all duration-200 flex items-center" data-bs-toggle="modal" data-bs-target="#addCarModal">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
                     </svg>
@@ -152,6 +184,9 @@ $result = mysqli_query($con, $sql);
                             placeholder="e.g. 4"
                             value="4">
                     </div>
+
+
+
                 </div>
 
 
@@ -167,7 +202,7 @@ $result = mysqli_query($con, $sql);
         </div>
 
         <div id="addVehicleForm" class="hidden bg-gray-800 rounded-xl p-6 border-2 border-dashed border-gray-700 hover:border-blue-500 transition-all duration-300">
-            <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6">
+            <form action="add_car.php" method="POST" enctype="multipart/form-data" class="space-y-6">
              
                 <div>
                     <label class="block text-sm font-medium text-gray-200 mb-2">Vehicle Image</label>
@@ -180,7 +215,7 @@ $result = mysqli_query($con, $sql);
                             <div class="flex text-sm text-gray-400">
                                 <label for="vehicle-image" class="relative cursor-pointer bg-gray-700 rounded-md font-medium text-blue-500 hover:text-blue-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500">
                                     <span class="px-2 py-1">Upload a photo</span>
-                                    <input id="vehicle-image" name="vehicle_image" type="file" class="sr-only" accept="image/*" required>
+                                    <input id="vehicle-image" name="carImage" type="file" class="sr-only" accept="image/*" required>
                                 </label>
                             </div>
                             
@@ -205,13 +240,13 @@ $result = mysqli_query($con, $sql);
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-200">Vehicle Model</label>
-                        <input type="text" name="model" required 
+                        <input type="text" name="carModel" required 
                             class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                             placeholder="e.g. Toyota Vios 2020">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-200">Plate Number</label>
-                        <input type="text" name="plate_no" required 
+                        <input type="text" name="plateNum" required 
                             class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                             placeholder="e.g. ABC-123">
                     </div>
@@ -223,10 +258,31 @@ $result = mysqli_query($con, $sql);
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-200">Number of Seats</label>
-                        <input type="number" name="seats" min="1" max="8" required 
+                        <input type="number" name="number_of_seats" min="1" max="8" required 
                             class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                             placeholder="e.g. 4">
                     </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-200">Vehicle Manufacturer</label>
+                        <input type="text" name="carManufacturer" required 
+                            class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                            placeholder="e.g. Toyota">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-200">Vehicle Status</label>
+                        <select name="carStatus" required class="mt-1 block w-full rounded-lg bg-gray-700 border-gray-600 text-gray-100 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                            <option value="Available">Available</option>
+                            <option value="Unavailable">Unavailable</option>
+                        </select>
+                    </div>
+
+                    <input type="number" name="carOwnerID" required placeholder="Enter Car Owner ID">
+
+                    
+
+
                 </div>
                 <div class="flex justify-end space-x-3">
                     <button type="button" class="px-4 py-2 text-sm font-medium text-gray-400 hover:text-gray-100 transition-colors duration-200">
@@ -238,6 +294,11 @@ $result = mysqli_query($con, $sql);
                 </div>
             </form>
         </div>
+</div>              
+
+
+
+
     </div> 
 
 <script>
@@ -278,6 +339,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+document.getElementById("addCarForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    let formData = new FormData(this);
+
+    fetch("add_car.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message); 
+        if (data.success) {
+            location.reload(); 
+        }
+    })
+    .catch(error => console.error("Error:", error));
+});
+
 </script>
 </body>
 </html>

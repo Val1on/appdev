@@ -1,42 +1,75 @@
 <?php
 
-include 'database.php';
+require 'database.php';
 
-if (!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+$response = ["success" => false, "message" => ""];
 
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $carModel = $_POST["carModel"];
+    $carManufacturer = $_POST["carManufacturer"];
+    $carStatus = $_POST["carStatus"];
+    $plateNum = $_POST["plateNum"];
+    $color = $_POST["color"];
+    $number_of_seats = intval($_POST["number_of_seats"]);
+    $carOwnerID = intval($_POST["carOwnerID"]);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $model = mysqli_real_escape_string($con, $_POST['model']);
-    $plate_no = mysqli_real_escape_string($con, $_POST['plate_no']);
-    $color = mysqli_real_escape_string($con, $_POST['color']);
-    $seats = (int) $_POST['seats'];
+   
+    $stmt = $con->prepare("SELECT ownerNO FROM carowner WHERE ownerNO = ?");
+    $stmt->bind_param("i", $carOwnerID);
+    $stmt->execute();
+    $stmt->store_result();
 
-
-    $target_dir = "uploads/";
-    $image_name = basename($_FILES["vehicle_image"]["name"]);
-    $target_file = $target_dir . time() . "_" . $image_name; 
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
-
-    if (!in_array($imageFileType, $allowed_types)) {
-        die("Invalid file type. Only JPG, JPEG, PNG, and GIF are allowed.");
+    if ($stmt->num_rows === 0) {
+        $response["message"] = "Error: carOwnerID ($carOwnerID) does not exist in carowner table.";
+        echo json_encode($response);
+        exit;
     }
 
-    if (move_uploaded_file($_FILES["vehicle_image"]["tmp_name"], $target_file)) {
+    $stmt->close();
 
-        $sql = "INSERT INTO vehicles (model, plate_no, color, seats, image_path) VALUES ('$model', '$plate_no', '$color', $seats, '$target_file')";
+ 
+    if (isset($_FILES["carImage"])) {
+        $targetDir = "uploads/";
+        $fileName = basename($_FILES["carImage"]["name"]);
+        $targetFilePath = $targetDir . $fileName;
+        $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
 
-        if (mysqli_query($con, $sql)) {
-            echo "Vehicle added successfully!";
+      
+        $allowedTypes = ["jpg", "jpeg", "png"];
+        if (!in_array($fileType, $allowedTypes)) {
+            $response["message"] = "Only JPG, JPEG, and PNG files are allowed.";
+            echo json_encode($response);
+            exit;
+        }
+
+      
+        if (move_uploaded_file($_FILES["carImage"]["tmp_name"], $targetFilePath)) {
+        
+            $stmt = $con->prepare("INSERT INTO cars (carModel, carManufacturer, carImage, carStatus, plateNum, color, number_of_seats, carOwnerID) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            if (!$stmt) {
+                $response["message"] = "Database prepare error: " . $con->error;
+                echo json_encode($response);
+                exit;
+            }
+
+            $stmt->bind_param("ssssssii", $carModel, $carManufacturer, $targetFilePath, $carStatus, $plateNum, $color, $number_of_seats, $carOwnerID);
+
+            if ($stmt->execute()) {
+                $response["success"] = true;
+                $response["message"] = "Car registered successfully!";
+            } else {
+                $response["message"] = "Database execution error: " . $stmt->error;
+            }
+
+            $stmt->close();
         } else {
-            echo "Error: " . mysqli_error($con);
+            $response["message"] = "File upload failed.";
         }
     } else {
-        echo "Error uploading image.";
+        $response["message"] = "Please upload an image.";
     }
 }
 
-mysqli_close($con);
+echo json_encode($response);
+
 ?>

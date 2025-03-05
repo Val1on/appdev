@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $price_per_seat = $_POST['price_per_seat'] ?? '';
     $trip_description = $_POST['trip_description'] ?? '';
     
-    // Handling Image Upload
+
     $postIMG = '';
     if (!empty($_FILES['postIMG']['name'])) {
         $targetDir = "uploads/";

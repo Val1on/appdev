@@ -101,6 +101,8 @@ CREATE TABLE `cars` (
   `carModel` varchar(255) NOT NULL,
   `carManufacturer` varchar(255) NOT NULL,
   `plateNum` varchar(255) NOT NULL,
+  `carImage` varchar(255) NOT NULL,
+  `carStatus` varchar(255) NOT NULL,
   `color` varchar(50) NOT NULL,
   `number_of_seats` int(11) NOT NULL,
   `carOwnerID` int(11) NOT NULL
